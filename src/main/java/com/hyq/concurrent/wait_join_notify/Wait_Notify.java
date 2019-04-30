@@ -3,38 +3,50 @@ package com.hyq.concurrent.wait_join_notify;
 @SuppressWarnings("all")
 public class Wait_Notify {
     public static void main(String[] args) {
-        Thread thread = new Thread(() -> {
-            System.out.println(Thread.currentThread().getName()+" running...");
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            System.out.println(Thread.currentThread().getName()+" end...");
-        });
+        Service service = new Service();
+        Object o = new Object();
 
-        Thread waitThread = new Thread(() -> {
+        new Thread(() -> {
+            service.testMethod(o);
+        }).start();
+
+        new Thread(() -> {
+            service.synNotifyMethod(o);
+        }).start();
+    }
+
+    public static class Service {
+
+        public void testMethod(Object lock) {
             try {
-                while (true) {
-                    thread.wait();
-                    System.out.println(Thread.currentThread().getName()+" wait...");
-                    Thread.sleep(100);
+                synchronized (lock) {
+                    System.out.println("begin wait() ThreadName="
+                            + Thread.currentThread().getName());
+                    lock.wait();
+                    Thread.sleep(3000);
+                    System.out.println("  end wait() ThreadName="
+                            + Thread.currentThread().getName());
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        });
+        }
 
-        Thread notifyThread = new Thread(() -> {
+        public void synNotifyMethod(Object lock) {
             try {
-                while (true) {
-                        thread.notify();
-                    System.out.println(Thread.currentThread().getName()+" wait...");
-                    Thread.sleep(100);
+                synchronized (lock) {
+                    System.out.println("begin notify() ThreadName="
+                            + Thread.currentThread().getName() + " time="
+                            + System.currentTimeMillis());
+                    lock.notify();
+                    Thread.sleep(3000);
+                    System.out.println("  end notify() ThreadName="
+                            + Thread.currentThread().getName() + " time="
+                            + System.currentTimeMillis());
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        });
+        }
     }
 }
