@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
- * join是thread的方法，内部其实是通过Object.wait(0)的实现方式，就是等到当前线程，直到发送notify通知再继续往下走，当前执行执行完毕后会发送notifyAll
+ * join是thread的方法，内部其实是通过循环调用Object.wait(0)的实现方式，就是等到当前线程，直到发送notify通知再继续往下走，一个线程在执行完毕后会发送notifyAll
  */
 @SuppressWarnings("all")
 public class Join {

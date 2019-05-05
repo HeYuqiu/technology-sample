@@ -22,7 +22,8 @@ public class Wait_Notify {
                 synchronized (lock) {
                     System.out.println("begin wait() ThreadName="
                             + Thread.currentThread().getName());
-                    lock.wait();
+                    Thread.sleep(3000);
+                    lock.wait();  // 释放锁，并等待获取锁
                     Thread.sleep(3000);
                     System.out.println("  end wait() ThreadName="
                             + Thread.currentThread().getName());
