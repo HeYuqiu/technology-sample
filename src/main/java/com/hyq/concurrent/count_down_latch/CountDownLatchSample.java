@@ -4,6 +4,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * 引用场景：等待其他线程执行完后再执行当前线程
  * 3）CountDownLatch：（同步计时器）三个运动员（子线程）等待裁判（主线程）发布命令，裁判发出命令后运动员开跑（子线程继续执行），然后裁判（主线程）等待3个运动员都跑完了，公布结果。
  * <p>
  * 必须是多线程的场景
