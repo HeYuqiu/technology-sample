@@ -1,4 +1,4 @@
-package com.hyq.concurrent.sync;
+package com.hyq.concurrent.lock;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;

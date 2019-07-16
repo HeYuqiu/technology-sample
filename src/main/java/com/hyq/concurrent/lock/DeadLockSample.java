@@ -1,6 +1,4 @@
-package com.hyq.concurrent.sync;
-
-import sun.jvm.hotspot.oops.OopUtilities;
+package com.hyq.concurrent.lock;
 
 import java.util.concurrent.TimeUnit;
 
