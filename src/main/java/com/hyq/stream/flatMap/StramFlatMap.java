@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
+ * 流的扁平化处理
  * Created by heyuqiu on 2018/11/21.
  */
 public class StramFlatMap {

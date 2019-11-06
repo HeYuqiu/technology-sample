@@ -14,11 +14,13 @@ public class HashMapSample {
         People people2 = new People("zs",22);
         People people3 = new People("tt",23);
         People people4 = new People("77",7);
-        ConcurrentHashMap<People,String> hashMap = new ConcurrentHashMap<>();
+//        ConcurrentHashMap<People,String> hashMap = new ConcurrentHashMap<>();
+        HashMap<People,String> hashMap = new HashMap<>();
         hashMap.put(people1,"heyuqiu");
         hashMap.put(people2,"zhushu");
         hashMap.put(people3,"tiantian");
         hashMap.put(people4,"777");
+        hashMap.put(people1,"heyuqiu1");
         hashMap.get(people3);
 
     }
