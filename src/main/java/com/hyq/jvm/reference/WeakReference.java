@@ -1,5 +1,7 @@
 package com.hyq.jvm.reference;
 
+import lombok.Data;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,10 +22,22 @@ public class WeakReference {
         //测试值传递
         int xx = 1;
         add(xx);
-        System.out.print(xx);
+        System.out.println(xx);
+
+
+        Integer num = 10;
+        Test test = new Test();
+        test.setNum(num);
+        num = num - 1;
+        System.out.println(test.getNum());
     }
 
     public static void add(int temp) {
         temp++;
+    }
+
+    @Data
+    public static class Test {
+        private Integer num;
     }
 }
