@@ -24,7 +24,6 @@ public class CommandLineRunnerSample implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        ServiceLoader
         String[] activeProfiles = applicationContext.getEnvironment().getActiveProfiles();
 //        transactionTestService.insertRecord();
     }
