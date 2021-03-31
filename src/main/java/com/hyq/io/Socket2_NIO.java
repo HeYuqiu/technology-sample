@@ -8,10 +8,11 @@ import java.nio.channels.SocketChannel;
 import java.util.LinkedList;
 
 /**
+ * 模拟NIO（同步非阻塞）
  * @author Yuqiu.He
  * @date 2021/3/27
  */
-public class SocketNIO {
+public class Socket2_NIO {
     public static void main(String[] args) throws Exception {
         LinkedList<SocketChannel> clients = new LinkedList<>();
         ServerSocketChannel ss = ServerSocketChannel.open();

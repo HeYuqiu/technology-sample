@@ -10,7 +10,7 @@ import java.net.Socket;
  * @author Yuqiu.He
  * @date 2021/3/28
  */
-public class SocketBIO {
+public class Socket1_BIO {
     public static void main(String[] args) throws Exception {
         ServerSocket server = new ServerSocket(9090);
         while (true) {
